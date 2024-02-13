@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+  public class Pagamento{
+
+    Scanner s = new Scanner(System.in);
+
+    int quantidade, opcao;
+    double valorPagar = 0, valorTotal = 0;
+
+    public void apresentarMenu(){
+      System.out.println("********************MENU*********************");
+      System.out.println("1.Hamburguer simples............-100 meticais");
+      System.out.println("2.Hamburguer com ovo............-140 meticais");
+      System.out.println("3.Hamburguer com queijo.........-175 meticais");
+      System.out.println("4.Hamburguer completo...........-250 meticais");
+      System.out.println("*********************************************");
+    }
+
+    public int inserirQuantidade (int quantidade){
+      this.quantidade = s.nextInt();
+      return this.quantidade;
+    }
+
+    public void escolherOpcao(){
+      do{
+        apresentarMenu();
+        System.out.println("Escolha uma opcao : ");
+        opcao = s.nextInt();
+
+        if(opcao == 1){
+          System.out.println("Quantos hamburguers simples deseja ?");
+          inserirQuantidade(this.quantidade);
+          valorPagar = 100 * this.quantidade;
+        }else if(opcao == 2){
+                System.out.println("Quantos hamburguers com ovo deseja ?");
+                inserirQuantidade(this.quantidade);
+                valorPagar = 140 * this.quantidade;
+              }else if(opcao == 3){
+                      System.out.println("Quantos hamburguers com queijo deseja ?");
+                      inserirQuantidade(this.quantidade);
+                      valorPagar = 175 * this.quantidade;
+                    }else if(opcao == 4){
+                            System.out.println("Quantos hamburguers completos deseja ?");
+                            inserirQuantidade(this.quantidade);
+                            valorPagar = 250 * this.quantidade;
+                          }else{
+                            System.out.println("Opcao invalidade!");
+                          }
+                          this.quantidade++;
+                          valorTotal += valorPagar;
+        System.out.println("Deseja escolher mais algum produto ?");
+        opcao = (char)s.next().charAt(0);
+      }while(opcao == 's');
+        System.out.println("Valor a pagar : "+valorTotal);
+    }
+
+    
